@@ -1,3 +1,4 @@
 
 BUGS:
 - Bottom bar doesn't sit nicely on page load in Chrome 10
+- Backspace doesn't seem to work all the time? you sometimes have to press it twice?
