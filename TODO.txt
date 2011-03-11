@@ -1,4 +1,6 @@
-
 BUGS:
-- Bottom bar doesn't sit nicely on page load in Chrome 10
-- Backspace doesn't seem to work all the time? you sometimes have to press it twice?
+- IE 9 #Fail - Doesn't anchor to the bottom of the page, Page number doesn't show content etc.....
+
+DONE:
+- FIXED: Bottom bar doesn't sit nicely on page load in Chrome 10
+- NOT A BUG: Backspace doesn't seem to work all the time? you sometimes have to press it twice? (Note: Panels didn't have the correct content, it just looked like this was happening)

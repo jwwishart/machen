@@ -20,25 +20,22 @@
 			content.width(totalWidth);
 		}
 		,
-		lastPanelID : 0
-		,		
+		lastPanelID : 0,
+		currentPanelID : 0,		
 		next : function() {
-			var currentNo = this.getCurrentPanelNo();
-			this.showPanel( currentNo == this.lastPanelID ? currentNo : currentNo + 1);
+			this.showPanel( this.currentPanelID == this.lastPanelID ? this.currentPanelID : this.currentPanelID + 1);
 		}
 		,
 		back : function() {
-			var currentNo = this.getCurrentPanelNo();
-			this.showPanel( currentNo == 0 ? 0 : currentNo - 1);
-		}
-		,
-		getCurrentPanelNo : function() {
-			return parseInt($(".machen-panel:visible").attr("data-panelid"));
+			this.showPanel( this.currentPanelID == 0 ? 0 : this.currentPanelID - 1);
 		}
 		,
 		showPanel : function(panelNo) {
 			$(".machen-panel").hide();
 			$(".machen-panel[data-panelid='" + panelNo +"']").show();
+			this.currentPanelID = panelNo;
+			
+			$("#page_number"). html("Page " + parseInt(panelNo + 1));
 		}
 		,
 		getLastPanel : function() {
@@ -55,6 +52,11 @@
 		$(window).resize(function() {
 			machen.setupViewport();
 		});
+		
+		// BUG: in chrome the calculations work correctly if 1. I call this twise on page load.
+		// 2. if I resize the window. Otherwise initially the bottom panel is up about 10px like
+		// it's not considering the padding somewhere???
+		machen.setupViewport();
 		
 		// Count the panels
 		machen.lastPanelID = machen.getLastPanel();
