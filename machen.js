@@ -29,7 +29,6 @@
 		,
 		back : function() {
 			var currentNo = this.getCurrentPanelNo();
-			//alert(currentNo);
 			this.showPanel( currentNo == 0 ? 0 : currentNo - 1);
 		}
 		,
@@ -57,26 +56,27 @@
 			machen.setupViewport();
 		});
 		
-		
-		machen.lastPanelID= machen.getLastPanel();
+		// Count the panels
+		machen.lastPanelID = machen.getLastPanel();
 		
 		// Hide all panels and show the first one
 		machen.showPanel(0);
 		
-		// NOTE: Have to use keydown as chrome doesn't capture
+		// NOTE: Have to use keydown as chrome doesn't capture backspace
 		$(window.document).keydown(function(event) {
 			//alert(event.which);
 			
+			// 32 is the space key; 13 is the enter key
 			if ('32' == event.which || '13' == event.which) {
 				event.preventDefault();
 				machen.next();
 			}
 			
+			// 8 is the backspace key
 			if ('8' == event.which) {
 				event.preventDefault();
 				machen.back();
 			}
-			
 		});
 	});
 	
