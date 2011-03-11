@@ -1,0 +1,30 @@
+
+body {
+	background-color: black;
+	margin: 0;
+	font-family: verdana, sans-serif;
+}
+
+#header {
+	background-color: orange;
+	color: maroon;
+	font-weight: bold;
+	padding: 5px 0;
+	text-align: center;
+	width: 100%;
+}
+
+#content {
+	color: white;
+	padding: 5px 5px;
+	width: 100%;
+}
+
+#footer {
+	background-color: lightgreen;
+	color: darkgreen;
+	padding: 5px 0;
+	text-align: center;
+	width: 100%;
+}
+
