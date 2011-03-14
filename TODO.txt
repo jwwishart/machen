@@ -1,5 +1,10 @@
 BUGS:
+- See if we can get rid of the data-panelid attribute and just use order of the panels.
+- Provide full window mode (say press the f button and the top and the bottom borders dissappear
+  N.B. hovering the mouse over the top right of the page might show the page no?
 - IE 9 #Fail - Doesn't anchor to the bottom of the page, Page number doesn't show content etc.....
+- Do viewport calculations on other window events... current situation doesn't work correctly when
+  safari browser is min-maximized (chagned)
 
 DONE:
 - FIXED: Bottom bar doesn't sit nicely on page load in Chrome 10

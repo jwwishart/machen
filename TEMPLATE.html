@@ -6,20 +6,21 @@
 </head>
 <body>
 	<div id="page_number"></div>
+	<div id="navigation"> <a href="javascript:machen.back(); return false;">&lt;&lt; back</a>  |  <a href="javascript:machen.next(); return false;">Next &gt;&gt;</a> </div>
 	<div id="header" style="padding: 5px 0;">
 		Machen Chapter 1
 	</div>
-	
-	<div id="content" style="padding: 5px 5px;">
+	<div id="content" style="padding: 5px 5px;" onselectstart="return false;">
 		<div class="machen-panel" data-panelid="0">
 			<div style="text-align: center;">
 				<h1>Welcome to Machen Chapter 1</h1>
 			</div>
 		</div>
-		<div class="machen-panel" data-panelid="1" style="display: none;">
+		<div class="machen-panel" data-panelid="1">
 			Question 1
+			<div class="machen-answer">This is the answer to Question 1</div>
 		</div>
-		<div class="machen-panel" data-panelid="2" style="display: none;">
+		<div class="machen-panel" data-panelid="2">
 			Question 2
 		</div>
 	</div>
@@ -29,5 +30,20 @@
 	
 	<script src="jquery.js"></script>
 	<script src="machen.js"></script>
+	<script>
+		// TODO: Move to machen.js
+		$().ready(function() {		
+			var navigation = $("#navigation");
+			navigation.fadeTo("fast", 0.25);
+			
+			var header = $("#header");
+			
+			navigation.hover(function(){
+				navigation.fadeTo("slow", 1);
+			}, function() { 
+				navigation.fadeTo("slow", 0.25);
+			});
+		});
+	</script>
 </body>
 </html>

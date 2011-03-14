@@ -23,7 +23,13 @@
 		lastPanelID : 0,
 		currentPanelID : 0,		
 		next : function() {
-			this.showPanel( this.currentPanelID == this.lastPanelID ? this.currentPanelID : this.currentPanelID + 1);
+			// See if there is an answer panel inside the current panel and show it.
+			var answerSection = this.getCurrentPanel().find(".machen-answer").filter(":hidden");
+			
+			if (answerSection.length == 0)
+				this.showPanel( this.currentPanelID == this.lastPanelID ? this.currentPanelID : this.currentPanelID + 1);
+			else 
+				answerSection.show();				
 		}
 		,
 		back : function() {
@@ -34,12 +40,21 @@
 			$(".machen-panel").hide();
 			$(".machen-panel[data-panelid='" + panelNo +"']").show();
 			this.currentPanelID = panelNo;
+			this.getCurrentPanel().find(".machen-answer").hide();
 			
 			$("#page_number"). html("Page " + parseInt(panelNo + 1));
 		}
 		,
 		getLastPanel : function() {
 			return $(".machen-panel").last().attr("data-panelid");
+		}
+		,
+		getCurrentPanel : function() {
+			return $(".machen-panel[data-panelid=" + this.currentPanelID + "]");
+		}
+		,
+		getAllPanels : function() {
+			return $(".machen-panel");
 		}
 	};
 	
@@ -62,6 +77,7 @@
 		machen.lastPanelID = machen.getLastPanel();
 		
 		// Hide all panels and show the first one
+		machen.getAllPanels().find(".machen-answer").hide();
 		machen.showPanel(0);
 		
 		// NOTE: Have to use keydown as chrome doesn't capture backspace
@@ -69,16 +85,21 @@
 			//alert(event.which);
 			
 			// 32 is the space key; 13 is the enter key
-			if ('32' == event.which || '13' == event.which) {
+			if ('32' == event.which || '13' == event.which || '39' == event.which ) {
 				event.preventDefault();
 				machen.next();
 			}
 			
 			// 8 is the backspace key
-			if ('8' == event.which) {
+			if ('8' == event.which || '37' == event.which) {
 				event.preventDefault();
 				machen.back();
 			}
+		});
+		
+		var content = $("#content");
+		content.mouseup(function() {
+			machen.next();
 		});
 	});
 	
