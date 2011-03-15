@@ -1,36 +1,41 @@
 <!doctype html>
 <html>
 <head>
-	<title>Machen - Chapter 1</title>
+	<title>Machen Example</title>
 	<link href="stylesheet.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<div id="page_number"></div>
 	<div id="navigation"> <a href="javascript:machen.back(); return false;">&lt;&lt; back</a>  |  <a href="javascript:machen.next(); return false;">Next &gt;&gt;</a> </div>
-	<div id="header" style="padding: 5px 0;">
-		Machen Chapter 1
+	<div id="header">
+		Machen Example
 	</div>
-	<div id="content" class="no-select" style="padding: 5px 5px;" onselectstart="return false;">
+	<div id="content" class="no-select" onselectstart="return false;">
 		<div class="machen-panel" >
 			<div style="text-align: center;">
-				<h1>Welcome to Machen Chapter 1</h1>
+				<h1>Welcome to Machen</h1>
+				<p>A simple tool that works like presentation software (think PowerPoint.) with the intent of 
+				   being a revision tool. The idea is that questions would show and you can click the space or 
+				   enter key (or arrows, or click with the mouse) to show the answer, then press again to go to 
+				   the next slide. You can click the backspace button to go back a slide and press "f" to go into full browser window mode; i.e. to remove the top and bottom bars</p>
 			</div>
 		</div>
 		<div class="machen-panel">
-			Question 1
-			<div class="machen-answer">This is the answer to Question 1</div>
+			<h2>Question 1</h2>
+			<p>What is PI to the first 5 decimal places</p>
+			<div class="machen-answer">3.14159</div>
 		</div>
 		<div class="machen-panel">
-			Question 2
+			<h2>Question 2</h2>
+			<p>What is the Square root of 144</p>
+			<div class="machen-answer">12</div>
 		</div>
 	</div>
-	<div id="footer" style="padding: 5px 0;">
+	<div id="footer">
 		<div id="copyright">Copyright (c) 2011 Justin Wishart</div>
 	</div>
 	
 	<script src="jquery.js"></script>
 	<script src="machen.js"></script>
-	<script>
-	</script>
 </body>
 </html>

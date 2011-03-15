@@ -11,10 +11,10 @@
 			var navigation = $("#navigation");
 			
 			if (true == fullScreenMode) {
-				header.fadeOut();
-				footer.fadeOut();
-				pageNumber.fadeOut();
-				navigation.fadeOut();
+				header.slideUp();
+				footer.slideUp();
+				pageNumber.slideUp();
+				navigation.slideUp();
 			} else {
 				header.fadeIn();
 				footer.fadeIn();
@@ -34,7 +34,7 @@
 							 + parseInt(content.css("padding-bottom").replace("px", ""));
 							 
 			content.height(totalHeight);
-			
+
 			// Calcultae the width of the content area
 			var totalWidth = $(window).width();
 			totalWidth -= parseInt(content.css("padding-left").replace("px", ""))
@@ -45,18 +45,19 @@
 		lastPanelID : 0,
 		currentPanelID : 0,	
 		next : function() {
-			// See if there is an answer panel inside the current panel and show it.
 			var answerSection = this.getCurrentPanel().find(".machen-answer").filter(":hidden");
 			
+			// Don't do anything if answer section is showing and we are on the last
+			// panel
+			if (this.currentPanelID == this.lastPanelID && answerSection.length == 0) {
+				return;
+			}
+			
+			// See if there is an answer panel inside the current panel and show it.
 			if (answerSection.length == 0)
 				this.showPanel( this.currentPanelID == this.lastPanelID ? this.currentPanelID : this.currentPanelID + 1);
 			else 
 				answerSection.show();				
-		}
-		,
-		showNextAnswer : function(){
-			var allAnswers = this.getCurrentPanel().find(".machen-answer");
-			
 		}
 		,
 		back : function() {
@@ -166,7 +167,6 @@
 		});
 		
 		navigation.fadeTo("fast", 0.25);
-		
 		navigation.hover(function(){
 			navigation.fadeTo("slow", 1);
 		}, function() { 
