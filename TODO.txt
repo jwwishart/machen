@@ -1,11 +1,16 @@
-BUGS:
-- See if we can get rid of the data-panelid attribute and just use order of the panels.
-- Provide full window mode (say press the f button and the top and the bottom borders dissappear
-  N.B. hovering the mouse over the top right of the page might show the page no?
-- IE 9 #Fail - Doesn't anchor to the bottom of the page, Page number doesn't show content etc.....
+Features:
+- Simple slide like mechanism fired by space, enter, arrows, backspace of mouse click
+- F will hide the border and controlles etc. and just show the content.
+- To setup just add div.machen-panel's in the content area (at that level, you cannot nest them.)
+  and if you want answers put the div.machen-answer sections inside the machen-panel's and they
+  will be shown. You can only put one answer panel inside a div.machen-panel (that suits my 
+  purposes.)
+
+TODO:
 - Do viewport calculations on other window events... current situation doesn't work correctly when
   safari browser is min-maximized (chagned)
-
+- TODO: a simple video for youtube? Using Machen itself as the presentation tool?
+  
 DONE:
 - FIXED: Bottom bar doesn't sit nicely on page load in Chrome 10
 - NOT A BUG: Backspace doesn't seem to work all the time? you sometimes have to press it twice? (Note: Panels didn't have the correct content, it just looked like this was happening)

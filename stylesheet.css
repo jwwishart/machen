@@ -64,9 +64,6 @@ body {
 	padding: 5px 5px;
 	width: 100%;
 	overflow: auto;
-	
-	/* Prevent selection in Firefox*/
-	-moz-user-select: none;
 }
 
 #footer {
@@ -85,3 +82,11 @@ body {
 	border-top-right-radius: 5px;
 }
 
+
+.no-select {
+	user-select: none;         
+	-o-user-select: none;         
+	-moz-user-select: none;         
+	-khtml-user-select: none;         
+	-webkit-user-select: none; 
+}
