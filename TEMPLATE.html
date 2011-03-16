@@ -37,5 +37,17 @@
 	
 	<script src="jquery.js"></script>
 	<script src="machen.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var contents = $("#content");
+			contents.machen({
+				slideClass:'machen-panel'
+			});		
+			
+			contents.click(function() {
+				contents.machen("next");
+			});
+		});
+	</script>
 </body>
 </html>
