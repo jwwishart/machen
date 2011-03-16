@@ -1,7 +1,3 @@
 Machen
 ======
-A simple html based presentation (think PowerPoint) like framework that I hope to use as a revision tool.
-
-A Html page will have a number of panels and clicking space will move you forward and backspace will move you backwards. Inside each panel can be an answer section. The answer section will show when you are on a panel and click the spacebar (as answer sections are hidden by default.) If the current panel's answer section is showing and the user clicks the space bar, then the next panel is shown.
-
-I'm using this as a revision tool.
+Machen is a simple framework that works like presentation software i.e. PowerPoint. This project was developed as a tool for the revision of material I’m learning in my study of Koine Greek. It allows simple creation of slides and the inclusion of sub panels that contain the answers. Slides are first shown with the answer hidden and the next time you press the spacebar or other relevant keys the answer section is shown. Movement is done through a variety of keyboard keys or mouse clicks and it has a full view port mode to remove everything bar the content area.
