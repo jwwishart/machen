@@ -124,7 +124,8 @@
 			machen.setupViewport();
 		});
 		
-		// BUG: in chrome the calculations work correctly if 1. I call this twise on page load.
+		// BUG: in chrome the calculations work correctly if 1. I call this twice on page load.
+		// thus below.
 		// 2. if I resize the window. Otherwise initially the bottom panel is up about 10px like
 		// it's not considering the padding somewhere???
 		machen.setupViewport();
@@ -178,6 +179,18 @@
 			footer.fadeTo("slow", 1);
 		}, function() {
 			footer.fadeTo("slow", 0.25);
+		});
+		
+		// Setup navigation links
+		var navAnchors = navigation.find("a");
+		navAnchors.first().click(function(e) {
+			e.preventDefault();
+			machen.back();
+		});
+		
+		navAnchors.last().click(function(e) {
+			e.preventDefault();
+			machen.next();
 		});
 	});
 	
