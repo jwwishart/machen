@@ -1,3 +1,4 @@
+
 function setupViewport(fullScreenMode) {
 	if (undefined == fullScreenMode)
 		fullScreenMode = false;
@@ -131,3 +132,4 @@ $(document).ready(function() {
 	
 	setupViewport();
 });
+
