@@ -2,24 +2,56 @@
 
 	var methods = {
 		init: function(options) {
-			var settings = $.extend($.fn.machen.defaults
+			$.extend($.fn.machen.defaults
 				, options);
+			
+			// Only use the first item.
+			init(this.get(0));
 		
-			return this.each(function(i, el) {
-				init(el);
-				return this;
-			});
+			return this;
 		}
 		,
 		next: function() { 
-			var current = getAllSlides().find(":visible");
+			var current = getAllSlides(this).filter(":visible");
 			var next = current.next(getSlideClassSelector());
+			
+			var handler = $.fn.machen.defaults.slideChange;
+			if ( handler ) {
+				var currentSlideNo = getCurrentSlideNo(this);
+				var nextSlideNo = next.length == 0 ? currentSlideNo : currentSlideNo+1;
+				if (false == handler.call(this, currentSlideNo, nextSlideNo)) {
+					return;
+				}
+			}
+
+			if (0 == next.length) 
+				return;			
+			
 			current.hide();
 			next.show();
 		}
 		,
 		prev: function() {
-			alert("prev");
+			var current = getAllSlides(this).filter(":visible");
+			var prev = current.prev(getSlideClassSelector());
+			
+			var handler = $.fn.machen.defaults.slideChange;
+			if ( handler ) {
+				var currentSlideNo = getCurrentSlideNo(this);
+				var nextSlideNo = prev.length == 0 ? currentSlideNo : currentSlideNo-1;
+				if (false == handler.call(this, currentSlideNo, nextSlideNo)) {
+					return;
+				}
+			}
+			
+			if (0 == prev.length) 
+				return;
+			
+			current.hide();
+			prev.show();
+		},
+		getSlide: function(slideNo) {
+			return $(getAllSlides(this).get(slideNo));
 		}
 	};
 	
@@ -35,10 +67,10 @@
 	
  
     $.fn.machen.defaults = {
-        transition: 'none',
 		slideClass: 'slide',
 		slideOrdinalAttr: 'data-panelID',
-		subSlideOrdinalAttr: 'data-subPanelNo'
+		subSlideOrdinalAttr: 'data-subPanelNo',
+		slideChange: undefined
     };
  
     // Initialization
@@ -57,8 +89,21 @@
 		slides.first().show();
 	}
 	
-	function getAllSlides() {
-		return this.find(getSlideClassSelector());
+	function getCurrentSlideNo(element) { 
+		var currentNumber = 1;
+		
+		element.find(getSlideClassSelector()).each(function(i, el) {
+			var found = $(el).is(":visible");
+			
+			if (found)
+				currentNumber = i++;
+		});
+		
+		return currentNumber;
+	}
+	
+	function getAllSlides(element) {
+		return element.find(getSlideClassSelector());
 	}
 	
 	function getSlideClassSelector() {
