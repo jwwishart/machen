@@ -49,7 +49,8 @@
 			
 			current.hide();
 			prev.show();
-		},
+		}
+		,
 		getSlide: function(slideNo) {
 			return $(getAllSlides(this).get(slideNo));
 		}
