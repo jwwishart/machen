@@ -82,11 +82,12 @@ $(document).ready(function() {
 		content.machen("next");
 	});
 	
-	navigation.fadeTo("fast", 0.25);
+	var navigationFadeSpeed = "_default";
+
 	navigation.hover(function(){
-		navigation.fadeTo("slow", 1);
+		navigation.fadeTo(navigationFadeSpeed, 1);
 	}, function() { 
-		navigation.fadeTo("slow", 0.25);
+		navigation.fadeTo(navigationFadeSpeed, 0.25);
 	});
 	
 	footer.fadeTo("fast", 0.25);

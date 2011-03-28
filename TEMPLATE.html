@@ -12,13 +12,32 @@
 	</div>
 	<div id="content" class="no-select" onselectstart="return false;">
 		<div class="machen-panel" >
-			<div style="text-align: center;">
-				<h1>Welcome to Machen</h1>
-				<p>A simple tool that works like presentation software (think PowerPoint.) with the intent of 
-				   being a revision tool. The idea is that questions would show and you can click the space or 
-				   enter key (or arrows, or click with the mouse) to show the answer, then press again to go to 
-				   the next slide. You can click the backspace button to go back a slide and press "f" to go into full browser window mode; i.e. to remove the top and bottom bars</p>
-			</div>
+			<h1 style="text-align: center;">Welcome to Machen</h1>
+			<p>Machen is a simple framework I'm intending to use as a revision tool. It has the following features:</p>
+			<p>Slides are easy to define. Simply create a div in the #content div and add the class
+			   "machen-panel".</p>
+			<p>The tool uses a jquery plugin I made called jquery.machen to do the navigation
+			   through the slides. jquery.machen is therefore able to be used in other projects
+			   where you need to provide movement through different slides</p>
+			<p>Navigation and Mode keys</p>
+				
+			<ul>
+				<li>Use the left or right keys to move back and forwards through the slides</li>
+				<li>Use the Enter or Spacebar keys to move to the next slide</li>
+				<li>Use the Backspace key to move back a slide</li>
+				<li>Click the main container area to move forward a slide</li>
+				<li>Press 'f' to toggle full browser window mode (this hides or shows the top and bottom
+				    bars</li>
+				<li>You can also navigat using the links at the top left of the page.</li>
+			</ul>
+			
+			<p>You can also add an answer div inside each "machen-panel" by adding the div and
+			   assigning the class "machen-answer" to the div. When you navigation forward the framework
+			   will check to see if there is an answer div and show it if it has not been shown.
+			</p>
+		
+			<p>
+			</p>
 		</div>
 		<div class="machen-panel">
 			<h2>Question 1</h2>
@@ -36,7 +55,7 @@
 	</div>
 	
 	<script src="jquery.js"></script>
-	<script src="jQuery.machen.js"></script>
+	<script src="jquery.machen.js"></script>
 	<script src="machen.js"></script>
 </body>
 </html>
